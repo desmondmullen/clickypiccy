@@ -1,0 +1,51 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.tile-display {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tile {
+    width: 20%;
+    margin: 1%;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 10s linear;
+    height: 3vmin;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: -5px;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    padding-top: 0px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    font-size: 1.2em;
+    color: white;
+    background-color: #5F849E
+}
+
+.footer a {
+    color: white;
+}
