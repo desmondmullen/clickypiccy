@@ -69,6 +69,14 @@ header h1 {
     }
 }
 
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.05);
+}
+
 .footer {
     width: 100%;
     margin: 0 auto;

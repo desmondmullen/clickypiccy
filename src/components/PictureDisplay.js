@@ -76,18 +76,18 @@ class PictureDisplay extends Component {
                     highScorer={this.state.highScorer}
                 />
                 <div className='tile-display'>
-                    <img id={this.state.idsArray[0]} alt='' className='tile' src={this.state.srcArray[0]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[1]} alt='' className='tile' src={this.state.srcArray[1]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[2]} alt='' className='tile' src={this.state.srcArray[2]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[3]} alt='' className='tile' src={this.state.srcArray[3]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[4]} alt='' className='tile' src={this.state.srcArray[4]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[5]} alt='' className='tile' src={this.state.srcArray[5]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[6]} alt='' className='tile' src={this.state.srcArray[6]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[7]} alt='' className='tile' src={this.state.srcArray[7]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[8]} alt='' className='tile' src={this.state.srcArray[8]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[9]} alt='' className='tile' src={this.state.srcArray[9]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[10]} alt='' className='tile' src={this.state.srcArray[10]} onClick={this.handleClick} />
-                    <img id={this.state.idsArray[11]} alt='' className='tile' src={this.state.srcArray[11]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[0]} alt='' className='tile zoom' src={this.state.srcArray[0]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[1]} alt='' className='tile zoom' src={this.state.srcArray[1]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[2]} alt='' className='tile zoom' src={this.state.srcArray[2]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[3]} alt='' className='tile zoom' src={this.state.srcArray[3]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[4]} alt='' className='tile zoom' src={this.state.srcArray[4]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[5]} alt='' className='tile zoom' src={this.state.srcArray[5]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[6]} alt='' className='tile zoom' src={this.state.srcArray[6]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[7]} alt='' className='tile zoom' src={this.state.srcArray[7]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[8]} alt='' className='tile zoom' src={this.state.srcArray[8]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[9]} alt='' className='tile zoom' src={this.state.srcArray[9]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[10]} alt='' className='tile zoom' src={this.state.srcArray[10]} onClick={this.handleClick} />
+                    <img id={this.state.idsArray[11]} alt='' className='tile zoom' src={this.state.srcArray[11]} onClick={this.handleClick} />
                 </div>
             </>
         );
