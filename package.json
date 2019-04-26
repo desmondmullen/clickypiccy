@@ -1,5 +1,5 @@
 {
-  "homepage": "http://clickypiccy.com",
+  "homepage": "https://clickypiccy.com",
   "name": "clickypiccy",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +7,7 @@
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-responsive-modal": "^3.6.0",
     "react-scripts": "3.0.0"
   },
   "scripts": {
