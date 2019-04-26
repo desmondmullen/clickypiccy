@@ -1,16 +1,21 @@
-import React, { Component } from "react";
-import Header from "./Header";
+import React, { Component } from 'react';
+import Header from './Header';
+import Modal from 'react-responsive-modal';
 import '../components/components.css';
 
 class PictureDisplay extends Component {
     state = {
         thisGameScore: 0,
+        lastGameScore: 0,
         overallHighScore: 0,
-        highScorer: 'nobody',
+        highScorer: 'anonymous',
         newHighScore: false,
         idsArray: ['pic01', 'pic02', 'pic03', 'pic04', 'pic05', 'pic06', 'pic07', 'pic08', 'pic09', 'pic10', 'pic11', 'pic12'],
         srcArray: ['/assets/images/01.png', '/assets/images/02.png', '/assets/images/03.png', '/assets/images/04.png', '/assets/images/05.png', '/assets/images/06.png', '/assets/images/07.png', '/assets/images/08.png', '/assets/images/09.png', '/assets/images/10.png', '/assets/images/11.png', '/assets/images/12.png'],
-        theClicked: []
+        theClicked: [],
+        openModal1: false,
+        openModal2: false,
+        modalMessage: 'Game over!'
     };
 
     componentDidMount() {
@@ -24,11 +29,9 @@ class PictureDisplay extends Component {
                 this.setState({ overallHighScore: this.state.thisGameScore });
                 this.setState({ newHighScore: true });
             }
-            alert('Game over!');
             this.resetGame();
         } else {
             if (this.state.thisGameScore === 11) { // with this answer, it's 12
-                alert('You won!');
                 this.resetGame();
             } else {
                 this.state.theClicked.push(currentClick);
@@ -58,14 +61,44 @@ class PictureDisplay extends Component {
     }
 
     resetGame = () => {
-        if (this.state.newHighScore === true) {
-            this.setState({ highScorer: (prompt('You have earned the highest score! Enter your name for posterity:')).trim() || 'anonymous' });
-        }
-        this.setState({ thisGameScore: 0 });
-        this.setState({ theClicked: [] });
-        this.setState({ newHighScore: false });
-        this.shuffle();
+        setTimeout(() => {
+            this.setState({ lastGameScore: this.state.thisGameScore });
+            if (this.state.newHighScore === false && this.state.thisGameScore < 12) {
+                // this.setState({ modalMessage: 'Game Over. Try again!' });
+                this.setState({ openModal1: true });
+            } else {
+                if (this.state.thisGameScore === 12) { // 12 is always a 'new' high score
+                    this.setState({ modalMessage: 'You Won! And you have earned the highest score!' });
+                } else {
+                    if (this.state.newHighScore === true) {
+                        this.setState({ modalMessage: `You didn't win this round. But you earned the highest score!` });
+                    }
+                }
+                this.setState({ openModal2: true });
+            }
+            this.setState({ thisGameScore: 0 });
+            this.setState({ theClicked: [] });
+            this.setState({ newHighScore: false });
+            this.shuffle();
+        }, 100);
     }
+
+    handleChange = (event) => {
+        this.setState({ highScorer: event.target.value });
+    }
+
+    handleSubmit = (event) => {
+        if (this.state.highScorer.trim() === '') {
+            this.setState({ highScorer: 'anonymous' });
+        };
+        event.preventDefault();
+        this.onCloseModal();
+    }
+
+    onCloseModal = () => {
+        this.setState({ openModal1: false });
+        this.setState({ openModal2: false });
+    };
 
     render() {
         return (
@@ -74,8 +107,18 @@ class PictureDisplay extends Component {
                     thisGameScore={this.state.thisGameScore}
                     overallHighScore={this.state.overallHighScore}
                     highScorer={this.state.highScorer}
-                />
-                <div className='tile-display'>
+                /><br />
+                <Modal open={this.state.openModal1} onClose={this.onCloseModal} focusTrapped>
+                    <h1>Game Over. You got {this.state.lastGameScore} out of 12. Try again!</h1>
+                </Modal>
+                <Modal open={this.state.openModal2} onClose={this.onCloseModal} focusTrapped>
+                    <h1>{this.state.modalMessage}</h1>
+                    <h3>Your score was {this.state.lastGameScore} out of 12.</h3>
+                    <form onSubmit={this.handleSubmit}>
+                        <h2>Enter your name for posterity:<br /><input type='text' className='high-scorer-input' value={this.state.highScorer} onChange={this.handleChange} /> <button type='submit' value='Submit' className='high-scorer-input'>OK</button></h2>
+                    </form>
+                </Modal>
+                <div className='tile-display wrapper'>
                     <img id={this.state.idsArray[0]} alt='' className='tile zoom' src={this.state.srcArray[0]} onClick={this.handleClick} />
                     <img id={this.state.idsArray[1]} alt='' className='tile zoom' src={this.state.srcArray[1]} onClick={this.handleClick} />
                     <img id={this.state.idsArray[2]} alt='' className='tile zoom' src={this.state.srcArray[2]} onClick={this.handleClick} />
