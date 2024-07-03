@@ -1,5 +1,6 @@
 {
-  "homepage": "http://desmondmullen.com/clickypiccy/",
+  "homepage": "desmondmullen.github.io/clickypiccy/",
+  "old_homepage": "http://desmondmullen.com/clickypiccy/",
   "name": "clickypiccy",
   "version": "0.1.1",
   "private": true,
