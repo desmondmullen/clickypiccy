@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clickypiccy/static/css/main.838452c0.css",
+    "main.js": "/clickypiccy/static/js/main.bcd617f1.js",
+    "index.html": "/clickypiccy/index.html",
+    "main.838452c0.css.map": "/clickypiccy/static/css/main.838452c0.css.map",
+    "main.bcd617f1.js.map": "/clickypiccy/static/js/main.bcd617f1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.838452c0.css",
+    "static/js/main.bcd617f1.js"
+  ]
+}
